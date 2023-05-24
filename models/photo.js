@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Define the photo schema
 const photoSchema = new mongoose.Schema({
   id: {
     type: Number,

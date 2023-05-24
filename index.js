@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 // Routes
-app.use("/photos",photoRouter)
+app.use("/photos", photoRouter); // Mount the photoRouter to handle '/photos' endpoints
 
 const PORT = process.env.PORT || 3000;
 
@@ -31,4 +31,3 @@ mongoose
   .catch(error => {
     console.log(error.message);
   });
-
