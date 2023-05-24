@@ -8,26 +8,25 @@ const pixabay = axios.create({
 });
 
 export const getImages = async (req, res) => {
-    try {
-        // Prepare the URL based on the query parameter (type)
-        console.log("req.query.type",req.query.type);
-            const response = await pixabay.get("/", {
-              params: {
-                key: "25540812-faf2b76d586c1787d2dd02736",
-                q: req.query.type,
-              },
-            });
+  try {
+    // Prepare the URL based on the query parameter (type)
+    const response = await pixabay.get("/", {
+      params: {
+        key: "25540812-faf2b76d586c1787d2dd02736",
+        q: req.query.type,
+      },
+    });
 
-        // Process the response data
-        const data = response.data.hits;
-       images = data
-        // Send the response
-        res.json(data.slice(0,9));
-    } catch (error) {
-        // Handle error
-        console.log(error);
-        res.status(500).json(error);
-    }
+    // Process the response data
+    const data = response.data.hits;
+    images = data;
+    // Send the response
+    res.json(data.slice(0, 9));
+  } catch (error) {
+    // Handle error
+    console.log(error);
+    res.status(500).json(error);
+  }
 };
 
 
