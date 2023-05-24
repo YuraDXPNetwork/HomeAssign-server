@@ -1,10 +1,15 @@
 import express from "express";
-import { getPhotos, savePhotos } from "../controllers/photos.js";
+import { getImages, paginate, sortImages } from "../controllers/images.js";
 
-const photoRouter = express.Router();
+const imagesRouter = express.Router();
 
-photoRouter.get("/photos", getPhotos);
-photoRouter.post("/photos", savePhotos);
+// Route to fetch images
+imagesRouter.get("/images", getImages);
 
+// Route to sort images
+imagesRouter.get("/sort", sortImages);
 
-export default photoRouter;
+// Route to paginate images
+imagesRouter.get("/paginate", paginate);
+
+export default imagesRouter;
